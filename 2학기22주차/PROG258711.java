@@ -29,7 +29,7 @@ class Solution {
 
         int donut = 0, straight = 0, eight = 0;
 
-        for (int start : graph.getOrDefault(newNode, Collections.emptyList())) {
+        for (int start : graph.get(newNode)) {
             if (visited.contains(start)) continue;
 
             int result = find(start);
@@ -57,7 +57,7 @@ class Solution {
 
             if (outDeg == 0) return 1;
 
-            List<Integer> nextList = graph.getOrDefault(cur, Collections.emptyList());
+            List<Integer> nextList = graph.get(cur);
             if (nextList.isEmpty()) return 1;
 
             cur = nextList.get(0);
